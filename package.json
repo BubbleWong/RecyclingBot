@@ -1,0 +1,12 @@
+{
+  "name": "recycling-bot",
+  "type": "module",
+  "author": "Baobao Huang",
+  "license": "MIT",
+  "scripts": {
+    "test": "node test.mjs"
+  },
+  "dependencies": {
+    "openai": "^6.17.0"
+  }
+}
