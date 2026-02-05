@@ -4,9 +4,14 @@
   "author": "Baobao Huang",
   "license": "MIT",
   "scripts": {
-    "test": "node test.mjs"
+    "test": "node test.mjs",
+    "start": "node server.mjs"
   },
   "dependencies": {
+    "koa": "^3.1.1",
+    "koa-body": "^7.0.1",
+    "koa-router": "^14.0.0",
+    "koa-static": "^5.0.0",
     "openai": "^6.17.0"
   }
 }

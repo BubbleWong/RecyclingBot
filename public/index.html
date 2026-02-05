@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecyclingBot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="glass-container">
+        <header>
+            <h1>RecyclingBot</h1>
+            <p>Snap a photo to recycle correctly.</p>
+        </header>
+
+        <div class="upload-area" id="uploadArea">
+            <input type="file" id="imageInput" accept="image/*" capture="environment" hidden>
+            <div class="preview-container" id="previewContainer">
+                <div class="placeholder-icon">📸</div>
+                <p>Tap to take a photo or upload</p>
+            </div>
+            <img id="imagePreview" class="hidden" alt="Preview">
+        </div>
+
+        <button id="identifyBtn" class="primary-btn" disabled>
+            <span class="btn-text">Identify Item</span>
+            <div class="loader hidden"></div>
+        </button>
+
+        <div id="resultContainer" class="result-card hidden">
+            <div class="result-header">
+                <span class="bin-icon" id="binIcon">♻️</span>
+                <h2 id="resultType">Calculating...</h2>
+            </div>
+            <p id="resultReason">Analyzying your item...</p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
