@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="background-blobs">
         <div class="blob blob-1"></div>
@@ -16,11 +18,22 @@
         <div class="blob blob-3"></div>
     </div>
 
-    <main class="glass-container">
-        <header>
+    <!-- App Header -->
+    <header class="app-header">
+        <div class="logo-container">
+            <img src="logo.svg" alt="RecyclingBot Logo" class="app-logo">
             <h1>RecyclingBot</h1>
+        </div>
+        <nav>
+            <!-- Future nav links could go here -->
+        </nav>
+    </header>
+
+    <main class="glass-container">
+        <div class="hero-text">
+            <h2>Identify & Recycle</h2>
             <p>Snap a photo to recycle correctly.</p>
-        </header>
+        </div>
 
         <div class="upload-area" id="uploadArea">
             <input type="file" id="imageInput" accept="image/*" capture="environment" hidden>
@@ -45,6 +58,16 @@
         </div>
     </main>
 
+    <!-- App Footer -->
+    <footer class="app-footer">
+        <p>&copy; 2026 RecyclingBot. Keep Ottawa Clean.</p>
+        <div class="footer-links">
+            <a href="#">Guidelines</a>
+            <a href="#">Privacy</a>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
+
 </html>
