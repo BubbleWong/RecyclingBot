@@ -10,6 +10,7 @@ const testCases = [
     { item: "AA Battery", expected: "others" }, // HHW
     { item: "Banana peel", expected: "green_bin" },
     { item: "Plastic milk jug", expected: "blue_bin" },
+    { item: "Grass clippings", expected: "green_bin" },
     { item: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Oranges_-_whole-halved-segment.jpg/1200px-Oranges_-_whole-halved-segment.jpg", expected: "green_bin" }
 ];
 

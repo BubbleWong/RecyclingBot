@@ -69,9 +69,35 @@ This is how to recycle garbage in 2026. There are three different bins:
 
             - Food scraps (meat, bones, dairy, veg)
             - Soiled paper & cardboard (pizza boxes)
-            - Yard waste (leaves, branches)
 
         ❌ Not Accepted: Plastic bags (unless certified compostable, but generally discouraged), pet waste (in some programs).
+
+    - Yard Trimmings
+
+        ✅ Accepted:
+
+            - Leaves (deciduous and evergreen)
+            - Grass clippings
+            - Woody debris (small branches, twigs, hedge prunings)
+            - Garden plants (dead flowers, weeds)
+            - Seasonal items (natural Christmas trees, pumpkins, corn stalks)
+
+        📝 Preparation & Containers:
+
+            - Kraft paper bags (e.g., Bag To Earth).
+            - Reusable fabric bags (e.g., heavy-duty lawn bags) or open bins.
+            - Bundled branches: Twine only, <4ft (1.2m) long, <2in (5cm) diameter.
+            - Weight limit: <50lbs (23kg) per bag/bundle.
+
+        ❌ Not Accepted:
+            
+            - Plastic bags (even "biodegradable" ones are often prohibited).
+            - Rocks, soil, sod.
+
+        💡 Beneficial Reuse:
+            - Mulching: Scatter leaves/clippings to retain moisture.
+            - Grasscycling: Leave clippings on the lawn.
+            - Home Composting: Mix greens (grass) and browns (leaves).
 
 - Household Hazardous Waste
 
