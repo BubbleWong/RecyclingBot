@@ -104,6 +104,11 @@ function displayResult(data) {
             resultContainer.classList.add('bin-others');
             binIcon.textContent = '⚠️';
             break;
+        case 'error':
+            resultContainer.classList.add('bin-error');
+            binIcon.textContent = '❌';
+            resultReason.innerHTML = `${reason}<br><br><small>Please try focusing on the item and ensure good lighting.</small>`;
+            break;
         default:
             binIcon.textContent = '❓';
     }

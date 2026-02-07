@@ -269,6 +269,14 @@ body {
     color: var(--bin-other);
 }
 
+.bin-error {
+    border-color: #ef4444;
+}
+
+.bin-error h2 {
+    color: #ef4444;
+}
+
 /* Loader */
 .loader {
     width: 20px;
