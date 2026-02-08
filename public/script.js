@@ -9,6 +9,7 @@ const resultContainer = document.getElementById('resultContainer');
 const resultType = document.getElementById('resultType');
 const resultReason = document.getElementById('resultReason');
 const binIcon = document.getElementById('binIcon');
+const retakeOverlay = document.getElementById('retakeOverlay');
 
 // Handle click on upload area
 uploadArea.addEventListener('click', () => {
@@ -25,6 +26,7 @@ imageInput.addEventListener('change', (e) => {
             imagePreview.classList.remove('hidden');
             previewContainer.classList.add('hidden');
             identifyBtn.disabled = false;
+            retakeOverlay.classList.add('hidden'); // Hide overlay
 
             // hide result if new image is selected
             resultContainer.classList.add('hidden');
@@ -40,6 +42,7 @@ identifyBtn.addEventListener('click', async () => {
 
     // Loading state
     setLoading(true);
+    retakeOverlay.classList.add('hidden'); // Ensure hidden during load
 
     const formData = new FormData();
     formData.append('image', file);
@@ -81,6 +84,7 @@ function setLoading(isLoading) {
 function displayResult(data) {
     resultContainer.classList.remove('hidden');
     resultContainer.className = 'result-card'; // reset classes
+    retakeOverlay.classList.remove('hidden'); // Show overlay
 
     const type = data.type || 'unknown';
     const reason = data.reason || 'No description available.';
