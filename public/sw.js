@@ -1,15 +1,19 @@
-const CACHE_NAME = 'recycling-bot-v1';
+const CACHE_NAME = 'recycling-bot-v2';
 const ASSETS = [
     '/',
     '/index.html',
     '/style.css',
     '/script.js',
     '/logo.svg',
-    '/manifest.json'
+    '/manifest.json',
+    '/icon-192.png',
+    '/icon-512.png',
+    '/favicon.ico'
 ];
 
 // Install Service Worker
 self.addEventListener('install', (e) => {
+    self.skipWaiting(); // Force new service worker to activate immediately
     e.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
             return cache.addAll(ASSETS);
@@ -28,6 +32,8 @@ self.addEventListener('activate', (e) => {
                     }
                 })
             );
+        }).then(() => {
+            return self.clients.claim(); // Take control of all clients immediately
         })
     );
 });
