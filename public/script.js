@@ -11,34 +11,50 @@ const resultReason = document.getElementById('resultReason');
 const binIcon = document.getElementById('binIcon');
 const retakeOverlay = document.getElementById('retakeOverlay');
 
+// Store the processed file
+let currentFile = null;
+
 // Handle click on upload area
 uploadArea.addEventListener('click', () => {
     imageInput.click();
 });
 
 // Handle file selection
-imageInput.addEventListener('change', (e) => {
+imageInput.addEventListener('change', async (e) => {
     const file = e.target.files[0];
     if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            imagePreview.src = e.target.result;
-            imagePreview.classList.remove('hidden');
-            previewContainer.classList.add('hidden');
-            identifyBtn.disabled = false;
-            retakeOverlay.classList.add('hidden'); // Hide overlay
+        // Show loading state implicitly by disabling button until processed
+        identifyBtn.disabled = true;
 
-            // hide result if new image is selected
-            resultContainer.classList.add('hidden');
-        };
-        reader.readAsDataURL(file);
+        try {
+            const resizedFile = await resizeImage(file, 1024);
+            currentFile = resizedFile;
+
+            // Create preview from resized image
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                imagePreview.src = e.target.result;
+                imagePreview.classList.remove('hidden');
+                previewContainer.classList.add('hidden');
+                identifyBtn.disabled = false;
+                retakeOverlay.classList.add('hidden'); // Hide overlay
+
+                // hide result if new image is selected
+                resultContainer.classList.add('hidden');
+            };
+            reader.readAsDataURL(resizedFile);
+        } catch (error) {
+            console.error("Error processing image:", error);
+            alert("Failed to process image. Please try another one.");
+        }
     }
 });
 
 // Handle identification
 identifyBtn.addEventListener('click', async () => {
-    const file = imageInput.files[0];
-    if (!file) return;
+    if (!currentFile) return;
+
+    const file = currentFile;
 
     // Loading state
     setLoading(true);
@@ -122,4 +138,55 @@ function displayResult(data) {
         default:
             binIcon.textContent = '❓';
     }
+}
+
+function resizeImage(file, maxSize) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const img = new Image();
+            img.onload = () => {
+                let width = img.width;
+                let height = img.height;
+
+                // Check if resize is needed
+                if (width > maxSize || height > maxSize) {
+                    if (width > height) {
+                        height = Math.round((height * maxSize) / width);
+                        width = maxSize;
+                    } else {
+                        width = Math.round((width * maxSize) / height);
+                        height = maxSize;
+                    }
+                } else {
+                    // No resize needed, return original file
+                    resolve(file);
+                    return;
+                }
+
+                const canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+
+                canvas.toBlob((blob) => {
+                    if (blob) {
+                        // Create a new file object with the resized blob
+                        const resizedFile = new File([blob], file.name, {
+                            type: 'image/jpeg',
+                            lastModified: Date.now()
+                        });
+                        resolve(resizedFile);
+                    } else {
+                        reject(new Error('Canvas to Blob failed'));
+                    }
+                }, 'image/jpeg', 0.85); // 0.85 quality
+            };
+            img.onerror = () => reject(new Error('Image load failed'));
+            img.src = e.target.result;
+        };
+        reader.onerror = () => reject(new Error('File read failed'));
+        reader.readAsDataURL(file);
+    });
 }
