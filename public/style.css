@@ -33,15 +33,14 @@ body {
     color: var(--text-light);
     min-height: 100vh;
     min-height: 100dvh;
-    /* Use dynamic viewport height for mobile browsers */
     display: flex;
     flex-direction: column;
-    /* Changed from just flex to column for header/footer */
     overflow-x: hidden;
     position: relative;
-    /* PWA Safe Area Support: REMOVED from body to prevent >100vh height */
+    /* Fixed Positioning Support */
+    padding-top: 80px;
+    padding-bottom: 80px;
     margin: 0;
-    padding: 0;
 }
 
 /* ... existing blob styles ... */
@@ -60,8 +59,10 @@ body {
     background: rgba(15, 23, 42, 0.6);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
-    position: sticky;
+    position: fixed;
+    /* Changed to fixed */
     top: 0;
+    left: 0;
     z-index: 100;
 }
 
@@ -101,9 +102,9 @@ body {
     max-width: 420px;
     text-align: center;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    margin: 0 auto;
-    /* No vertical margin */
-    flex: 1;
+    margin: auto;
+    /* Vertically and horizontally center */
+    /* Removed flex: 1 to stop stretching */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -127,8 +128,9 @@ body {
     background: rgba(0, 0, 0, 0.2);
     border: 2px dashed var(--glass-border);
     border-radius: 16px;
-    height: 120px;
-    /* Reduced height significantly */
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    /* Standard 4:3 Photo Ratio */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -387,7 +389,11 @@ body {
     padding-right: max(1rem, env(safe-area-inset-right));
     background: rgba(15, 23, 42, 0.8);
     border-top: 1px solid var(--glass-border);
-    margin-top: auto;
+    /* Fixed Positioning */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
 }
 
 .footer-content {
