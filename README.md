@@ -2,6 +2,8 @@
 
 An AI-powered Progressive Web App (PWA) that helps users classify recycling items in Ottawa, Ontario.
 
+![Screenshot 2026-02-08 at 3 27 56 PM](https://github.com/user-attachments/assets/8cdb8ce7-03dc-4dd9-a008-19c1090d2340)
+
 ## Demo
 
 **Try it here:** [https://recycle.bubbleh.com/](https://recycle.bubbleh.com/)
