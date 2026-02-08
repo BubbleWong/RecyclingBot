@@ -40,7 +40,8 @@ body {
 /* App Header */
 .app-header {
     width: 100%;
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.5rem;
+    /* Reduced padding */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -59,13 +60,15 @@ body {
 }
 
 .app-logo {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    /* slightly smaller */
+    height: 40px;
     filter: drop-shadow(0 0 5px rgba(34, 197, 94, 0.5));
 }
 
 .app-header h1 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    /* slightly smaller */
     font-weight: 700;
     margin: 0;
     background: linear-gradient(to right, #22c55e, #3b82f6);
@@ -80,31 +83,31 @@ body {
     backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
-    padding: 1.5rem;
-    /* Reduced padding */
+    padding: 1rem 1.5rem;
+    /* Reduced vertical padding */
     width: 90%;
     max-width: 420px;
     text-align: center;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    margin: 1rem auto;
+    margin: 0.5rem auto;
     /* Reduced margin */
-    /* Center with margin */
     flex: 1;
-    /* Allow growing to push footer down */
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .hero-text h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    /* slightly smaller */
     margin-bottom: 0.25rem;
 }
 
 .hero-text p {
     color: var(--text-dim);
-    margin-bottom: 1rem;
-    /* Reduced from 2rem */
+    margin-bottom: 0.75rem;
+    /* Reduced margin */
+    font-size: 0.95rem;
 }
 
 /* Upload Area */
@@ -112,8 +115,8 @@ body {
     background: rgba(0, 0, 0, 0.2);
     border: 2px dashed var(--glass-border);
     border-radius: 16px;
-    height: 180px;
-    /* Reduced specificially for mobile spacing */
+    height: 150px;
+    /* Reduced height */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,7 +124,8 @@ body {
     overflow: hidden;
     position: relative;
     transition: all 0.3s ease;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
+    /* Reduced margin */
 }
 
 .upload-area:hover {
@@ -176,7 +180,8 @@ body {
 
 /* Model Selector */
 .model-selector-container {
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
+    /* Reduced margin */
     width: 100%;
 }
 
@@ -187,7 +192,8 @@ body {
     border: 1px solid var(--glass-border);
     background: rgba(255, 255, 255, 0.1);
     color: var(--text-light);
-    font-size: 1rem;
+    font-size: 0.95rem;
+    /* Slightly smaller font */
     font-family: inherit;
     cursor: pointer;
     outline: none;
@@ -214,12 +220,14 @@ body {
 /* Buttons */
 .primary-btn {
     width: 100%;
-    padding: 1rem;
+    padding: 0.9rem;
+    /* Slightly reduced padding */
     border-radius: 12px;
     border: none;
     background: var(--primary);
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    /* Slightly smaller font */
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.2s, background 0.2s;
@@ -242,10 +250,12 @@ body {
 
 /* Result Card */
 .result-card {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
+    /* Reduced margin */
     background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
-    padding: 1.5rem;
+    padding: 1rem;
+    /* Reduced padding */
     text-align: left;
     border-left: 5px solid transparent;
     animation: slideUp 0.4s ease-out;
