@@ -44,6 +44,12 @@ identifyBtn.addEventListener('click', async () => {
     const formData = new FormData();
     formData.append('image', file);
 
+    // Add selected model
+    const modelSelect = document.getElementById('modelSelect');
+    if (modelSelect) {
+        formData.append('model', modelSelect.value);
+    }
+
     try {
         const response = await fetch('/api/classify', {
             method: 'POST',

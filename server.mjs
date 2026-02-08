@@ -18,6 +18,8 @@ app.use(koaBody({ multipart: true }));
 router.post("/api/classify", async (ctx) => {
     try {
         const file = ctx.request.files?.image;
+        const model = ctx.request.body.model; // Extract model from ctx.request.body
+
         if (!file) {
             ctx.status = 400;
             ctx.body = { error: "No image file uploaded" };
@@ -29,8 +31,8 @@ router.post("/api/classify", async (ctx) => {
         const mimeType = file.mimetype || "image/jpeg";
         const dataUri = `data:${mimeType};base64,${base64}`;
 
-        console.log(`Processing image upload: ${file.originalFilename}`);
-        const result = await classifyItem(dataUri);
+        console.log(`Processing image upload: ${file.originalFilename} with model: ${model || 'default'}`);
+        const result = await classifyItem(dataUri, model); // Pass model to classifyItem
 
         ctx.body = result;
     } catch (error) {

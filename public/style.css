@@ -154,6 +154,43 @@ body {
     display: none !important;
 }
 
+/* Model Selector */
+.model-selector-container {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.model-select {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    /* Remove default arrow */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.5rem;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.model-select:hover,
+.model-select:focus {
+    border-color: var(--primary);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.model-select option {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
 /* Buttons */
 .primary-btn {
     width: 100%;
