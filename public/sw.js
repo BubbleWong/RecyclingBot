@@ -1,4 +1,4 @@
-const CACHE_NAME = 'recycling-bot-v4';
+const CACHE_NAME = 'recycling-bot-v5';
 const ASSETS = [
     '/',
     '/index.html',

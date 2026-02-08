@@ -91,14 +91,14 @@ body {
     backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
-    padding: 1rem 1.5rem;
-    /* Reduced vertical padding */
+    padding: 0.5rem 1rem;
+    /* Highly reduced vertical padding */
     width: 90%;
     max-width: 420px;
     text-align: center;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    margin: 0.5rem auto;
-    /* Reduced margin */
+    margin: 0 auto;
+    /* No vertical margin */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -106,16 +106,16 @@ body {
 }
 
 .hero-text h2 {
-    font-size: 1.75rem;
-    /* slightly smaller */
-    margin-bottom: 0.25rem;
+    font-size: 1.5rem;
+    /* smaller */
+    margin-bottom: 0.1rem;
 }
 
 .hero-text p {
     color: var(--text-dim);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     /* Reduced margin */
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 /* Upload Area */
@@ -123,8 +123,8 @@ body {
     background: rgba(0, 0, 0, 0.2);
     border: 2px dashed var(--glass-border);
     border-radius: 16px;
-    height: 150px;
-    /* Reduced height */
+    height: 120px;
+    /* Reduced height significantly */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,7 +132,7 @@ body {
     overflow: hidden;
     position: relative;
     transition: all 0.3s ease;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     /* Reduced margin */
 }
 
