@@ -33,6 +33,11 @@ body {
     /* Changed from just flex to column for header/footer */
     overflow-x: hidden;
     position: relative;
+    /* PWA Safe Area Support */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
 }
 
 /* ... existing blob styles ... */
@@ -41,7 +46,10 @@ body {
 .app-header {
     width: 100%;
     padding: 1rem 1.5rem;
-    /* Reduced padding */
+    /* Combine default padding with safe area inset */
+    padding-top: max(1rem, env(safe-area-inset-top));
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -370,6 +378,9 @@ body {
 .app-footer {
     width: 100%;
     padding: 1rem;
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
     background: rgba(15, 23, 42, 0.8);
     border-top: 1px solid var(--glass-border);
     margin-top: auto;
