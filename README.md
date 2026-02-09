@@ -1,4 +1,4 @@
-# RecyclingBot
+# 🤖 RecyclingBot
 
 An AI-powered Progressive Web App (PWA) that helps users classify recycling items in Ottawa, Ontario.
 
