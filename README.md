@@ -55,13 +55,13 @@ An AI-powered Progressive Web App (PWA) that helps users classify recycling item
 
 ## Tech Stack
 
--   **Backend**: Node.js, [Koa](https://koajs.com/)
--   **AI Integration**: [OpenAI SDK](https://github.com/openai/openai-node) (via OpenRouter)
+-   **Backend**: [Cloudflare Workers](https://workers.cloudflare.com/) with static assets
+-   **AI Integration**: OpenRouter Chat Completions API
 -   **Frontend**: Vanilla HTML, CSS (Glassmorphism), JavaScript
 -   **PWA**: Service Worker, Web App Manifest
 -   **Testing**: Custom test suite (`test.mjs`)
 
-## How to Deploy
+## Local Development
 
 1.  **Clone the repository**:
     ```bash
@@ -74,23 +74,44 @@ An AI-powered Progressive Web App (PWA) that helps users classify recycling item
     npm install
     ```
 
-3.  **Configure Environment**:
-    -   Copy `config.json.sample` to `config.json`.
-    -   Add your `OPENROUTER_API_KEY` to `config.json`.
+3.  **Configure local secrets**:
+    -   Copy `.dev.vars.example` to `.dev.vars`.
+    -   Add your OpenRouter key.
 
-    ```json
-    {
-      "OPENROUTER_API_KEY": "your_api_key_here"
-    }
+    ```bash
+    cp .dev.vars.example .dev.vars
     ```
 
-4.  **Start the server**:
+4.  **Start the Cloudflare Worker dev server**:
     ```bash
-    npm start
+    npm run dev
     ```
 
 5.  **Access the app**:
-    Open your browser and navigate to `http://localhost:3000`.
+    Open the local URL printed by Wrangler.
+
+## Deploy to Cloudflare
+
+1.  **Create the production secret**:
+    ```bash
+    npx wrangler secret put OPENROUTER_API_KEY
+    ```
+
+2.  **Deploy the Worker and static assets**:
+    ```bash
+    npm run deploy
+    ```
+
+## Testing
+
+Run the live classifier checks with:
+
+```bash
+npm test
+```
+
+The test runner reads `OPENROUTER_API_KEY` from the shell environment or from
+`.dev.vars`. If neither is configured, live tests are skipped.
 
 ## License
 
